@@ -1,33 +1,34 @@
 # money-log-ios
 
-iOS向け家計簿アプリ「マネーログ」のモックプロジェクトです。
-2つの異なるデザインアプローチのモックを収録しています。
+iOS向け家計簿アプリ「マネーログ」のプロジェクトです。
+2つの異なるデザインアプローチのアプリを収録しています。
 
 ## プロジェクト構成
 
 ```
 money-log-ios/
-├── StandardMock/          … 標準版モック
-├── GamificationMock/      … ゲーミフィケーション版モック
+├── StandardMoneyLog/         … 標準版（Xcodeプロジェクト）
+├── GamificationMoneyLog/     … ゲーミフィケーション版（Xcodeプロジェクト）
+├── mocks/                    … 元のモックプロジェクト（参考用）
 └── README.md
 ```
 
-両モックは共通の統一アーキテクチャ（MVVM）とフォルダ構成に基づいています。
+各プロジェクトは共通の統一アーキテクチャ（MVVM）とフォルダ構成に基づいています。
 
 ```
-MoneyLog/
-├── App/              アプリエントリポイント
+[ProjectName]/
 ├── Models/           データモデル
 ├── ViewModels/       ビジネスロジック
 ├── Views/            画面（サブフォルダで分割）
-├── Components/       再利用可能なUIコンポーネント
+├── Components/       再利用可能なUIコンポーネント（Standard版のみ）
 ├── Theme/            テーマ・スタイル定義
-└── Resources/        Assets、Preview Content
+├── Preview Content/  プレビュー用サンプルデータ（Gamification版のみ）
+└── Assets.xcassets   アセット
 ```
 
 ---
 
-## StandardMock（標準版）
+## StandardMoneyLog（標準版）
 
 シンプルで使いやすいオーソドックスな家計簿アプリです。
 オレンジを基調としたマテリアルデザインで、支出管理に特化しています。
@@ -79,7 +80,7 @@ struct Expense: Identifiable, Codable {
 
 ---
 
-## GamificationMock（ゲーミフィケーション版）
+## GamificationMoneyLog（ゲーミフィケーション版）
 
 家計簿記録にゲーム要素を取り入れたモチベーション重視のアプリです。
 パープルを基調としたカスタムテーマで、XP・レベル・実績システムを搭載しています。

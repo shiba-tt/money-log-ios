@@ -1,32 +1,15 @@
-//
-//  GamificationMoneyLogApp.swift
-//  GamificationMoneyLog
-//
-//  Created by Tatsuya Shiba on 2026/02/21.
-//
-
 import SwiftUI
-import SwiftData
 
 @main
 struct GamificationMoneyLogApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    @StateObject private var expenseStore = ExpenseStore()
+    @StateObject private var userStats = UserStats()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
+                .environmentObject(expenseStore)
+                .environmentObject(userStats)
         }
-        .modelContainer(sharedModelContainer)
     }
 }
