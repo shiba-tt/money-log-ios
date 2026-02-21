@@ -1,6 +1,8 @@
 import Foundation
+import Combine
 
 class ExpenseStore: ObservableObject {
+    
     @Published var expenses: [Expense] = SampleData.expenses
     @Published var incomes: [Income] = SampleData.incomes
 
